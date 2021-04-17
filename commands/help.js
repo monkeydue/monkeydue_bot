@@ -16,13 +16,30 @@ exports.run = (client, message, args) => {
         .setDescription('``kick``')
         .setColor(colors)
         message.channel.send(modcms)
+    } else
+    if (args.join(' ') === "utility") {
+        const modcms = new Discord.MessageEmbed()
+        .setTitle(":tools: Utility Commands")
+ .setDescription("``apply``,``github``")
+        .setColor(colors)
+        message.channel.send(modcms)
+    } else
+    if (args.join(' ') === "ticket") {
+        const ticketcms = new Discord.MessageEmbed()
+        .setTitle("🎫Ticket Commands")
+ .setDescription("``ticket``,``close``,``open``,``transcript``")
+        .setColor(colors)
+        message.channel.send(ticketcms)
     }
+    
 else {
     const help = new Discord.MessageEmbed()
     .setTitle('Welcome to the help menu')
     .setDescription('hi welcome to the help menu')
-    .addField('😀Fun', '!help fun', true)
-    .addField('🔒Moderation', '!help mod', true)
+    .addField('😀Fun', '``!help fun``', true)
+    .addField('🔒Moderation', '``!help mod``', true)
+    .addField(':tools: Utility', '``!help utility``', true)
+    .addField('🎫Tickets', '``!help ticket``', true)
     .setColor(colors)
     message.channel.send(help)
     }
