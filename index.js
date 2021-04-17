@@ -56,6 +56,16 @@ fs.readdir("./commands/", (err, files) => {
   });
 });
 
+fs.readdir("./tickets/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./tickets/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`Attempting to load command ${commandName}`);
+    client.commands.set(commandName, props);
+  });
+});
 
 client.on("message", (message) => {
   if (message.author.bot) return;
